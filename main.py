@@ -66,6 +66,10 @@ print(user_ratings.head(2))
 
 # Remove movies which have less than 3 ratings to remove irrelevancy due to not having enough data acquired
 user_ratings = user_ratings.dropna(thresh = 3, axis = 1)
-print(user_ratings.head(2))
-user_ratings_std = std.fit_transform(user_ratings)
+# print(user_ratings.head(2))
+# user_ratings_std = std.fit_transform(user_ratings)
 
+# Get pearson correlation between data
+# After, fill the NaN with 0. We do this after because we don't want the model to think that user has rated the movie with 0
+similar_movie_df = user_ratings.corr(method="pearson").fillna(0)
+print(similar_movie_df)
