@@ -47,3 +47,15 @@ for movie, ratings in movies_ratings:
 
 print(related_movies.head())
 print(related_movies.sum().sort_values(ascending=False))
+
+
+# Now I want to test my recommendation algorithm with real life data sets
+ratings = pd.read_csv("data/ratings.csv")
+# print(ratings.head(2))
+movies = pd.read_csv("data/movies.csv")
+# print(movies.head(2))
+# We can see that two data sets have column 'movieId' in common, so we can merge them together
+movies_ratings = pd.merge(ratings, movies)
+print(movies_ratings.head(2))
+# I drop some columns since they are not really important for our model
+movies_ratings = movies_ratings.drop(['timestamps', 'genres'])
