@@ -61,4 +61,10 @@ movies_ratings = pd.merge(ratings, movies)
 movies_ratings = movies_ratings.drop(['timestamp', 'genres'], axis = 1)
 print(movies_ratings.head(2))
 
-user_ratings = movies_ratings.pivot_table(index = ['userId'], columns = '')
+user_ratings = movies_ratings.pivot_table(index = ['userId'], columns = ['title'], values = 'rating')
+print(user_ratings.head(2))
+
+# Remove movies which have less than 10 users who rated them to remove irrelevancy due to not having enough data acquired
+user_ratings = user_ratings.dropna(thresh = 10, axis = 1)
+user_ratings_std = std.fit_transform(user_ratings)
+
