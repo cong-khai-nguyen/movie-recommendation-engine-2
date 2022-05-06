@@ -56,6 +56,9 @@ movies = pd.read_csv("data/movies.csv")
 # print(movies.head(2))
 # We can see that two data sets have column 'movieId' in common, so we can merge them together
 movies_ratings = pd.merge(ratings, movies)
-print(movies_ratings.head(2))
+# print(movies_ratings.head(2))
 # I drop some columns since they are not really important for our model
-movies_ratings = movies_ratings.drop(['timestamps', 'genres'])
+movies_ratings = movies_ratings.drop(['timestamp', 'genres'], axis = 1)
+print(movies_ratings.head(2))
+
+user_ratings = movies_ratings.pivot_table(index = ['userId'], columns = '')
