@@ -30,9 +30,20 @@ similar_movie_df = pd.DataFrame(similar_movie, index=df.columns, columns=df.colu
 print(similar_movie_df)
 
 def get_similar_movies(movie_name, user_rating):
+    # We take user_rating subtracting 2.5 because 2.5 is a mean a for a rating. That would help us to push down those related movie to that bad rating toward the bottom
     similar_score = similar_movie_df[movie_name] * (user_rating - 2.5)
-    similar_score = similar_score.sort_value(ascending = False)
+    similar_score = similar_score.sort_values(ascending = False)
     return similar_score
 
+print(get_similar_movies("action1",2))
 
+# However, in real life, we are always given a list of ratings from user
+movies_ratings = [("action1", 5), ("romantic2", 5), ("romantic3", 1)]
 
+related_movies = pd.DataFrame()
+print("\n\n")
+for movie, ratings in movies_ratings:
+    related_movies = related_movies.append(get_similar_movies(movie, ratings), ignore_index=True)
+
+print(related_movies.head())
+print(related_movies.sum().sort_values(ascending=False))
