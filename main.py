@@ -29,4 +29,10 @@ similar_movie_df = pd.DataFrame(similar_movie, index=df.columns, columns=df.colu
 # similar_movie = pd.DataFrame(similar_movie, index=ratings_std.columns, columns=ratings_std.columns)
 print(similar_movie_df)
 
+def get_similar_movies(movie_name, user_rating):
+    similar_score = similar_movie_df[movie_name] * (user_rating - 2.5)
+    similar_score = similar_score.sort_value(ascending = False)
+    return similar_score
+
+
 
