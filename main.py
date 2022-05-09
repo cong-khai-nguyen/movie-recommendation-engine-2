@@ -82,4 +82,10 @@ def get_similar_movies(movie_name, user_rating):
     similar_score = similar_score.sort_values(ascending = False)
     return similar_score
 
-movies_ratings = [("action1", 5), ("romantic2", 5), ("romantic3", 1)]
+movies_ratings = [("2 Fast 2 Furious (Fast and the Furious 2, The) (2003)", 5), ("12 Years a Slave (2013)", 4), ("2012 (2009)", 3), ("(500) Days of Summer (2009)", 2)]
+
+for movie, ratings in movies_ratings:
+    related_movies = related_movies.append(get_similar_movies(movie, ratings), ignore_index=True)
+
+print(related_movies.head())
+print(related_movies.sum().sort_values(ascending=False))
