@@ -71,5 +71,15 @@ user_ratings = user_ratings.dropna(thresh = 3, axis = 1)
 
 # Get pearson correlation between data
 # After, fill the NaN with 0. We do this after because we don't want the model to think that user has rated the movie with 0
+# Since applying pearson method already adjust the mean, I don't have to scale the data
 similar_movie_df = user_ratings.corr(method="pearson").fillna(0)
 print(similar_movie_df)
+
+# Recreate the helper method to find the similar movies
+def get_similar_movies(movie_name, user_rating):
+    # We take user_rating subtracting 2.5 because 2.5 is a mean a for a rating. That would help us to push down those related movie to that bad rating toward the bottom
+    similar_score = similar_movie_df[movie_name] * (user_rating - 2.5)
+    similar_score = similar_score.sort_values(ascending = False)
+    return similar_score
+
+movies_ratings = [("action1", 5), ("romantic2", 5), ("romantic3", 1)]
