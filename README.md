@@ -1,1 +1,1 @@
-# Movie Recommender
+# Movie Recommender (w/ Collaborative Filtering)
