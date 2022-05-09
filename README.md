@@ -14,3 +14,5 @@ Further Explanantion & Resources:
 [Pearson's Correlation documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)
 
 [Pearson's Correlation](https://www.youtube.com/watch?v=6fUYt1alA1U)
+# Install and Run the Project
+This project requires to imported and installed libraries: pandas, and scikit-learn.
