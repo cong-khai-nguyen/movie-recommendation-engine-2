@@ -1,7 +1,6 @@
 import math
 import pandas as pd
 import numpy as np
-from scipy import sparse
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 df = pd.read_csv("data/toy_dataset.csv", index_col=0)
