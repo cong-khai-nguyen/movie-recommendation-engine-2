@@ -7,12 +7,14 @@ Unlike the first movie recommender project I did, this one uses collaborative fi
 
 Further Explanantion & Resources:
 
-[Cosine Similarity documenation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
+[Cosine Similarity Documenation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
 
-[Cosine Similarity Explanation](https://www.youtube.com/watch?v=ieMjGVYw9ag)
+[Cosine Similarity](https://www.youtube.com/watch?v=ieMjGVYw9ag)
 
-[Pearson's Correlation documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)
+[Pearson's Correlation Documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)
 
 [Pearson's Correlation](https://www.youtube.com/watch?v=6fUYt1alA1U)
+
+[Standard Scaler Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 # Install and Run the Project
 This project requires to imported and installed libraries: pandas, and scikit-learn.
